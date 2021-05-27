@@ -14,4 +14,4 @@ function App() {
 
 export default App;
 
-// TESTE!
+// Primeiro commit! Charizard, I choose you :fire:
