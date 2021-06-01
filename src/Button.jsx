@@ -1,10 +1,22 @@
 import React, { Component } from 'react';
 import './Button.css'
 
+
 class Button extends Component {
-  render() {
+  constructor(props) {
+    super();
+
+    this.nextHandle = this.nextHandle.bind(this);
+  }
+
+  nextHandle = () => {
+    alert('próximo pokemon!');
+  }
+
+  render() {    
+
     return (
-      <div>Bottão</div>
+      <button className="next-button" onClick={this.nextHandle} >Próximo Pokemon</button>
     );
   }
 }
