@@ -1,5 +1,5 @@
 import React from 'react';
-import './Pokemon.css'
+import './Pokemon.css';
 
 class Pokemon extends React.Component {
     render() {
