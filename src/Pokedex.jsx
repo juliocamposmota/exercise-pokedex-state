@@ -6,10 +6,9 @@ import './Pokedex.css'
 class Pokedex extends React.Component {
     render() {
         const { pokemons } = this.props;
-        
+
         return (
             <div className="pokedex">
-                <Button />
                 <Pokemon key={pokemons[0].id} pokemon={pokemons[0]} />
                 <Button />
             </div>
