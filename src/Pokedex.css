@@ -6,3 +6,8 @@
   flex-wrap: wrap;
   margin: 10px 10px;
 }
+
+.type-list {
+  display: flex;
+  flex-direction: row;
+}
