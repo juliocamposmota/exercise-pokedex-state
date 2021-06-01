@@ -1,5 +1,6 @@
 import React from 'react';
 import Pokemon from './Pokemon';
+import Button from './Button';
 import './Pokedex.css'
 
 class Pokedex extends React.Component {
@@ -8,9 +9,9 @@ class Pokedex extends React.Component {
         
         return (
             <div className="pokedex">
-                {
+                <Button />
                 <Pokemon key={pokemons[0].id} pokemon={pokemons[0]} />
-                }
+                <Button />
             </div>
         );
     }
