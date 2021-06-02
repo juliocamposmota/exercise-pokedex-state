@@ -3,10 +3,10 @@ import './NextButton.css';
 
 class NextButton extends Component {
   render() {
-    const nextHandle = this.props.handle;
+    const handle = this.props.handle;
 
     return (
-      <button className="next-button" onClick={nextHandle} >Próximo Pokemon</button>
+      <button className="next-button" onClick={handle} >Próximo Pokemon</button>
     );
   }
 }

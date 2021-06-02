@@ -3,10 +3,10 @@ import './FilterButton.css';
 
 class FilterButton extends Component {
   render() {
-    const { type } = this.props;
+    const { type, handle } = this.props;
 
     return (
-      <button className="filter-button">{ type }</button>
+      <button className="filter-button" onClick={handle}>{ type }</button>
     )
   }
 }
