@@ -8,3 +8,8 @@
   color: #f0f0f0;
   background-color: green;
 }
+
+.next-button:disabled {
+  color: gray;
+  background-color: #f0f0f0;
+}

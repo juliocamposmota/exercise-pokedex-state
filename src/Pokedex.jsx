@@ -7,15 +7,16 @@ import './Pokedex.css';
 
 class Pokedex extends React.Component {
 	constructor(props) {
-		super();
+		super(props);
 
 		this.state = {
-			listIndex: 0,
 			list: pokemons,
+			listIndex: 0,
 		}
 
 		this.nextHandle = this.nextHandle.bind(this);
 		this.filterHandle = this.filterHandle.bind(this);
+		this.clearHandle = this.clearHandle.bind(this);
 	}
 
 	nextHandle = () => {
@@ -38,19 +39,47 @@ class Pokedex extends React.Component {
 
 		this.setState(() => ({
 			list: result,
+			listIndex: 0,
 		}));
+
+		if (result.length === 1) {
+			const nextButton = document.querySelector('.next-button');
+			nextButton.disabled = true;
+		} else {
+			const nextButton = document.querySelector('.next-button');
+			nextButton.disabled = false;
+		}
+	}
+
+	clearHandle = () => {
+		const { pokemons } = this.props;
+
+		this.setState(() => ({
+			list: pokemons,
+			listIndex: 0,
+		}));
+
+		const nextButton = document.querySelector('.next-button');
+		nextButton.disabled = false;
 	}
 
 	render() {
-		// const { pokemons } = this.props;
+		const { list, listIndex } = this.state;
+		const { pokemons } = this.props;
+
+		const typesList = pokemons.map((pokemon) => pokemon.type);
+    const types = typesList.filter((elem, index, self) =>index === self.indexOf(elem)).sort();
 
 		return (
 			<div className="pokedex">
-				<Pokemon pokemon={this.state.list[this.state.listIndex]} />
+				<Pokemon key={list[listIndex].id} pokemon={list[listIndex]} />
 
 				<div className="type-list">
-					<FilterButton type="Fire" handle={this.filterHandle} />
-					<FilterButton type="Psychic" handle={this.filterHandle} />
+					<FilterButton type="All" handle={this.clearHandle} />
+
+					{types.map((type) => (
+						<FilterButton key={type} type={type} handle={this.filterHandle} />
+					))}
 				</div>
 
 				<NextButton handle={this.nextHandle} />
